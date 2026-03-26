@@ -60,8 +60,9 @@ def Teacher_login():
             if credential not in new_data:
                 err=True
                 return render_template('Teacher.html',err=err)
-        lc_ip= socket.gethostbyname(socket.gethostname())
-        l_url =f"http://{lc_ip}:{Port}/attendance/create/"+subject
+        # lc_ip= socket.gethostbyname(socket.gethostname())
+        # l_url =f"http://{lc_ip}:{Port}/attendance/create/"+subject
+        l_url = request.host_url + "attendance/create/" + subject
         QR=Qr(l_url)
     return render_template('home.html',QR=QR)
 
